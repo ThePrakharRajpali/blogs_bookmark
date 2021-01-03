@@ -1,0 +1,23 @@
+{
+  "name": "blogs_bookmark",
+  "version": "1.0.0",
+  "description": "blogs bookmark",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThePrakharRajpali/blogs_bookmark.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThePrakharRajpali/blogs_bookmark/issues"
+  },
+  "homepage": "https://github.com/ThePrakharRajpali/blogs_bookmark#readme",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
+}
