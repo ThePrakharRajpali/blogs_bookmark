@@ -3,12 +3,16 @@ const mongoose   = require("mongoose");
 const bodyParser = require("body-parser");
 
 const Bookmark   = require("./models/bookmark");
-const Tag        =require("./models/tag");
+const Tag        = require("./models/tag");
 
-const port    = 3000;
-const app     = express();
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true});
+const port       = 3000;
+const app        = express();
+
+mongoose.connect('mongodb://localhost/test', {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -27,8 +31,7 @@ app.get("/", (req, res) => {
     Bookmark.find({},(err,bookmarks)=>{
       if(err){
         console.log(err);
-      }
-        else {
+      } else {
           res.render("home",{bookmarks:bookmarks});
         }
     })
