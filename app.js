@@ -2,6 +2,9 @@ const express    = require("express");
 const mongoose   = require("mongoose");
 const bodyParser = require("body-parser");
 
+const Bookmark   = require("./models/bookmark");
+const Tag        =require("./models/tag");
+
 const port    = 3000;
 const app     = express();
 
@@ -14,7 +17,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-    res.render("home");
+    Bookmark.find({},(err,bookmarks)=>{
+      if(err){
+        console.log(err);
+      }
+        else {
+          res.render("home",{bookmarks:bookmarks});
+        }
+    })
+
 });
 
 app.listen(3000, () => {
